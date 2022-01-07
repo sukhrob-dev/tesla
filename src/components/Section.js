@@ -15,7 +15,7 @@ function Section({title, description, leftBtnText, rightBtnText, backgroundImg})
                         <LeftButton>{leftBtnText}</LeftButton>
                         {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
                     </ButtonGroup>
-                    <DownArrow src="/images/down-arrow.svg" />
+                    <DownArrow src={process.env.PUBLIC_URL + '/images/down-arrow.svg'} />
                 </Buttons>
             </Fade>
         </Wrap>
@@ -27,7 +27,7 @@ export default Section
 const Wrap = styled.div`
     width: 100vw;
     height: 100vh;
-    background-image: ${props => `url("/images/${props.bgImage}")`};
+    background-image: ${props => `url("${process.env.PUBLIC_URL + props.bgImage}")`};
     background-size: cover;
     background-position: center;
     display: flex;
@@ -78,5 +78,5 @@ const DownArrow = styled.img`
 `
 
 const Buttons = styled.div`
-
+    text-align: center;
 `

@@ -11,17 +11,17 @@ function Header() {
 
     return (
         <Container>
-            <a>
-                <img src="/images/logo.svg" alt="logo of Tesla" />
-            </a>
+            <div>
+                <img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt="logo of Tesla" />
+            </div>
             <Menu>
                 {cars && cars.map((car, index) => 
-                    <a key={index} href="#">{car}</a>
+                    <span key={index}>{car}</span>
                 )}
             </Menu>
             <RightMenu>
-                <a href="#">shop</a>
-                <a href="#">tesla account</a>
+                <span>shop</span>
+                <span>tesla account</span>
                 <CustomMenu onClick={() => setBurgerStatus(true)} />
             </RightMenu>
             <BurgerNav show={burgerStatus}>
@@ -29,13 +29,13 @@ function Header() {
                     <CustomClose onClick={() => setBurgerStatus(false)} />
                 </CloseWrapper>
                 {cars && cars.map((car, index) => 
-                    <li key={index}><a href="#">{car}</a></li>
+                    <li key={index}><span>{car}</span></li>
                 )}
-                <li><a href="#">Existing Inventory</a></li>
-                <li><a href="#">Used Inventory</a></li>
-                <li><a href="#">Trade-in</a></li>
-                <li><a href="#">Cybertruck</a></li>
-                <li><a href="#">Roadaster</a></li>
+                <li><span>Existing Inventory</span></li>
+                <li><span>Used Inventory</span></li>
+                <li><span>Trade-in</span></li>
+                <li><span>Cybertruck</span></li>
+                <li><span>Roadaster</span></li>
             </BurgerNav>
         </Container>
     )
@@ -60,7 +60,7 @@ const Menu = styled.div`
     display: flex;
     align-items: center;
 
-    a {
+    span {
         font-weight: 600;
         text-transform: uppercase;
         padding: 0 10px;
@@ -75,7 +75,7 @@ const RightMenu = styled.div`
     display: flex;
     align-items: center;
 
-    a {
+    span {
         font-weight: 600;
         text-transform: uppercase;
         margin-right: 10px;
@@ -105,7 +105,7 @@ const BurgerNav = styled.ul`
         padding: 15px 0;
         border-bottom: 1px solid rgba(0, 0, 0, .2);
 
-        a {
+        span {
             font-weight: 600;
         }
     }
